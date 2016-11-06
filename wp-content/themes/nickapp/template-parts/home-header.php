@@ -9,9 +9,21 @@
 								<img class="image-fit hero__image" src="images/app_logo.png" />
 							</div>
 							<div class="col-sm-9">
-								<h1 class="hero__header">Meet the Nick App</h1>
+								<h1 class="hero__header">
+									<?php
+										if(get_field("header_text"))
+										{
+											echo get_field("header_text");	
+										}
+									?>
+								</h1>
 								<p class="hero__subhead">
-									Have fun with your favorite Nick games and characters
+									<?php
+										if(get_field("header_subhead_text"))
+										{
+											echo get_field("header_subhead_text");	
+										}
+									?>
 								</p>
 							</div>
 						</div>
@@ -19,16 +31,35 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="callout callout-primary">
-  								<h4 class="hero__download">Download for free on the:</h4>
+  								<h4 class="hero__download">
+  									Download for free on the:
+  								</h4>
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-md-12">
-								<a class="btn btn-default btn-lg" type="submit" href="https://itunes.apple.com/us/app/nick/id596133590?mt=8" target="_blank">App Store</a>
-								<a class="btn btn-default btn-lg" type="submit" href="https://play.google.com/store/apps/details?id=com.nickonline.android.nickapp&hl=en" target="_blank">Google Play</a>
-								<a class="btn btn-default btn-lg" type="submit" href="https://www.amazon.com/Nickelodeon-Nick/dp/B00HEVJU7W" target="_blank">Amazon Fire</a>
+								<?php
+
+									// check if the repeater field has rows of data
+									if( have_rows('primary_platform') ):
+
+ 									// loop through the rows of data
+    							while ( have_rows('primary_platform') ) : the_row();
+
+					        // display a sub field value
+    							echo '<a class="btn btn-default btn-lg" type="submit" href="' . get_sub_field("platform_link") . '" target="_blank">' . get_sub_field("platform_name") . '</a>';
+
+    							endwhile;
+
+									else :
+
+    							// no rows found
+
+									endif;
+
+									?>
 							</div>
 						</div>
 				</div>
@@ -92,32 +123,27 @@
 
 				<div class="row">
 					<div class="col-sm-12">
-						<a class="btn btn-default btn-lg" type="submit" href="https://support.xbox.com/en-US/xbox-360/apps/nick-setup#cf4409fa273e4d51a3e7e776471a9479" target="_blank">xbox 360</a>
-						<a class="btn btn-default btn-lg" type="submit" href="https://play.google.com/store/apps/details?id=com.nickonline.android.nickapp&hl=en" target="_blank">chromecast</a>
-						<a class="btn btn-default btn-lg" type="submit" href="https://play.google.com/store/apps/details?id=com.nick.android.nick.tv&hl=en" target="_blank">Android TV</a>
-						<a class="btn btn-default btn-lg" type="submit" href="https://channelstore.roku.com/details/52838/nickelodeon" target="_blank">Roku</a>
+									<?php
+
+									// check if the repeater field has rows of data
+									if( have_rows('secondary_platforms') ):
+
+ 									// loop through the rows of data
+    							while ( have_rows('secondary_platforms') ) : the_row();
+
+					        // display a sub field value
+    							echo '<a class="btn btn-default btn-lg" type="submit" href="' . get_sub_field("platform_link") . '" target="_blank">' . get_sub_field("platform_name") . '</a>';
+
+    							endwhile;
+
+									else :
+
+    							// no rows found
+
+									endif;
+
+									?>
 					</div>
 				</div>
 			</section>
-		</section>
-
-
-				<section class="container">
-			<div class="row">
-				<div class="col-md-8">
-					<p style="font-size:18px">The Emmy&reg; award winning Nick app puts the best of Nickelodeon at your fingertips... hilarious original videos, animated shorts, games, quizzes, recent episodes and more! Have fun, play around, and prepare to laugh until you snarf milk from your nose.</p>
-				</div>
-				<div class="col-md-4">
-					<div class="panel panel-default">
-  					<div class="panel-body">
-							<h4>
-								Rated 4+
-							</h4>
-							<p>
-								Lorem ipsum dolor sit amet
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
 		</section>

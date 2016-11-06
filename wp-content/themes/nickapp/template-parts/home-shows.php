@@ -1,9 +1,21 @@
 <section class="benefits container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h2>All Your Favorite Shows</h2>
+					<h2>
+						<?php
+							if(get_field("favorite_shows_header"))
+								{
+									echo get_field("favorite_shows_header");	
+								}
+						?>
+					</h2>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. 
+						<?php
+							if(get_field("favorite_shows_text"))
+								{
+									echo get_field("favorite_shows_text");	
+								}
+						?>
 					</p>
 				</div>
 			</div>

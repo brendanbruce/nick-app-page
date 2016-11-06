@@ -1,7 +1,14 @@
 <section class="benefits container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h2>Epic Event Coverage</h2>
+					<h2>
+						<?php
+							if(get_field("event_header_text"))
+								{
+									echo get_field("event_header_text");	
+								}
+						?>
+					</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -22,7 +29,12 @@
 				</div>
 				<div class="col-sm-6">
 		    	<p>
-		    		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. 
+						<?php
+							if(get_field("event_body_text"))
+								{
+									echo get_field("event_body_text");	
+								}
+						?>
 					</p>
 				</div>
 			</div>

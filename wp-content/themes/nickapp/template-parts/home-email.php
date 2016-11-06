@@ -9,8 +9,24 @@
 					</div>
 					
 					<div class="col-sm-8">
-						<h2>Nick in your inbox</h2>
-						<p>Stay up to date with new episodes, games, and special events</p>
+						<h2>
+						<?php
+							if(get_field("email_header"))
+								{
+									echo get_field("email_header");	
+								}
+						?>
+						</h2>
+						
+						<p>
+							<?php
+								if(get_field("email_body_copy"))
+									{
+										echo get_field("email_body_copy");	
+									}
+							?>
+						</p>
+            
             <a class="btn btn-default" href="signup.html">Sign Up Now!</a>
 						<form>
                 <!--
